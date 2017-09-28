@@ -1,0 +1,293 @@
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+
+
+alert = #bd2c40
+warning = #ffb52a
+great = #8BC34A
+processing = #4FC3F7
+main_theme = #4FC3F7
+
+
+transparent = #66000000
+
+[bar-settings]
+padding = 3
+
+
+[bar/top]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 35
+;offset-x = 1%
+;offset-y = 1%
+radius = 6.0
+fixed-center = true
+
+background = ${colors.transparent}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 3
+padding-right = 3
+
+module-margin-left = 3
+module-margin-right = 3
+
+font-0 = Noto Sans Tagalog:pixelsize=13;0
+font-1 = FontAwesome:size=10;0
+font-2 = siji:pixelsize=10;0
+
+modules-left = i3
+modules-center = date
+modules-right = backlight memory cpu pavolume battery network eth powermenu
+
+tray-position = right
+tray-padding = 2
+tray-transparent = true
+tray-detached = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+ws-icon-0 = web;
+ws-icon-1 = term;
+ws-icon-2 = chat;
+ws-icon-3 = code;
+ws-icon-4 = music;
+ws-icon-default = 
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = #AA000000
+label-focused-underline= ${colors.main_theme}
+label-focused-padding = 4
+
+label-unfocused = %icon%
+label-unfocused-padding = 4
+
+label-occupied = %icon%
+label-occupied-padding = 4
+
+label-urgent = %icon%
+label-urgent-padding = 4
+
+label-empty = %icon%
+label-empty-foreground = #44ffffff
+label-empty-padding = 4
+
+
+[module/backlight]
+type = custom/script
+interval = 0.2
+exec = ~/.config/polybar/backlight.sh
+
+format-prefix = " "
+
+label = %output%%
+# label-foregrou2nd = ${colors.fg}
+format-padding = ${bar-settings.padding}
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <ramp-coreload> <label>
+;format = <ramp-coreload><label> 
+;format-prefix = ""
+# format-foreground = ${colors.color4}
+
+label = %percentage:3%%
+;   
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+format-padding = ${bar-settings.padding}
+
+[module/memory]
+type = internal/memory
+interval = 1
+
+format-prefix = "  "
+;format-prefix = ram
+# format-foreground = ${colors.color1}
+# format-margin-top = -5
+format-padding = ${bar-settings.padding}
+label = %gb_used%/%gb_total%
+
+[module/network]
+type = internal/network
+; To test interface: $ ls -1 /sys/class/net/
+interface = wlp3s0
+interval = 0.3
+
+
+label-connected = " %downspeed%"
+# label-connected = "  %downspeed%  %essid%  %local_ip%  %downspeed:8%  %upspeed:8%"
+# label-connected-foreground = ${colors.color4}
+label-disconnected = " -"
+# label-disconnected-foreground = ${colors.color7}
+# format-connected = <label-connected>
+format-connected = %{A:nm-connection-editor&:}<label-connected>%{A}
+format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>{A}
+format-padding = %{A:nm-connection-editor&:}${bar-settings.padding}{A}
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-padding = ${bar-settings.padding}
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+date = " %Y/%m/%d"
+time = %H:%M
+format-prefix = 
+label = "%date% %time%"
+# format-padding = 5
+
+[module/pavolume]
+type = custom/script
+interval = 0.2
+label = %output%
+exec = ~/.config/polybar/pavolume.sh
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/pavolume.sh --up
+scroll-down = ~/.config/polybar/pavolume.sh --down
+format-padding = ${bar-settings.padding}
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+format-charging-padding = ${bar-settings.padding}
+format-discharging-padding = ${bar-settings.padding}
+format-full-padding = ${bar-settings.padding}
+
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-full = <ramp-capacity>  <label-full>
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1-foreground = ${colors.warning}
+ramp-capacity-4-foreground = ${colors.great}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.processing}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+# label-open-foreground = ${colors.secondary}
+label-close =  
+# label-close-foreground = ${colors.secondary}
+label-separator = |
+# label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = 
+menu-0-0-foreground = ${colors.warning}
+menu-0-0-exec = menu-open-1
+
+menu-0-1-foreground = ${colors.alert}
+menu-0-1 = 
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = confirm
+menu-1-1-exec = reboot
+
+menu-2-0 = cancel
+menu-2-0-exec = menu-open-0
+menu-2-1 = configm
+menu-2-1-exec = poweroff
+
+format-padding = ${bar-settings.padding}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

@@ -1,0 +1,15 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled:                  true
+rofi.color-normal:                   #14161F, #B0E670, argb:00000000, #B0E670,#14161F
+rofi.color-urgent:                   #14161F, #B0E670, argb:00000000, #B0E670,#14161F
+rofi.color-active:                   #14161F, #B0E670, argb:00000000, #B0E670,#14161F
+rofi.color-window:                   argb:99000000 
+
+rofi.width: 1920
+rofi.lines: 15
+rofi.padding: 550
+rofi.separator-style none
+
+
