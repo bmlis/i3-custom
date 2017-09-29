@@ -22,3 +22,7 @@ sudo dnf install rofi -y
 
 echo "Setup compton"
 ln -s ~/Customization/i3-custom/compton/config ~/.config/compton/
+
+echo "Installing i3-gaps"
+# using yaroslav/i3desktop
+sudo dnf -y install i3-gaps

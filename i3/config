@@ -26,7 +26,7 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # get rid of title
 new_window pixel 3
@@ -183,7 +183,7 @@ exec --no-startup-id compton
 # Windows assignments
 assign [class="Google-chrome"] $01
 assign [class="Code"] $02
-assign [class="Gnome-terminal"] $03
+assign [class="URxvt"] $03
 for_window [class="Spotify"] move to workspace $04
 
 
@@ -197,3 +197,6 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
+# Gaps
+gaps inner 10
+gaps outer 10

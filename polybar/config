@@ -38,10 +38,10 @@ line-size = 3
 line-color = #f00
 
 padding-left = 3
-padding-right = 3
+padding-right = 10
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 1
+module-margin-right = 1
 
 font-0 = Noto Sans Tagalog:pixelsize=13;0
 font-1 = FontAwesome:size=10;0
@@ -151,24 +151,12 @@ interface = wlp3s0
 interval = 0.3
 
 
-label-connected = " %downspeed%"
-# label-connected = "  %downspeed%  %essid%  %local_ip%  %downspeed:8%  %upspeed:8%"
-# label-connected-foreground = ${colors.color4}
-label-disconnected = " -"
-# label-disconnected-foreground = ${colors.color7}
-# format-connected = <label-connected>
+label-connected = ""
+label-disconnected = "X"
 format-connected = %{A:nm-connection-editor&:}<label-connected>%{A}
 format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>{A}
 format-padding = %{A:nm-connection-editor&:}${bar-settings.padding}{A}
 
-ramp-signal-0 = ▁
-ramp-signal-1 = ▂
-ramp-signal-2 = ▃
-ramp-signal-3 = ▄
-ramp-signal-4 = ▅
-ramp-signal-5 = ▆
-ramp-signal-6 = ▇
-ramp-signal-7 = █
 
 [module/eth]
 type = internal/network
@@ -187,14 +175,15 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
+
 [module/date]
 type = internal/date
 interval = 5
 date = " %Y/%m/%d"
 time = %H:%M
 format-prefix = 
-label = "%date% %time%"
-# format-padding = 5
+label = %{A:zenity --calendar&:}%date% %time%%{A}
+
 
 [module/pavolume]
 type = custom/script
@@ -206,6 +195,7 @@ click-left = ~/.config/polybar/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/pavolume.sh --up
 scroll-down = ~/.config/polybar/pavolume.sh --down
 format-padding = ${bar-settings.padding}
+
 
 [module/battery]
 type = internal/battery
@@ -276,7 +266,7 @@ menu-1-1-exec = reboot
 
 menu-2-0 = cancel
 menu-2-0-exec = menu-open-0
-menu-2-1 = configm
+menu-2-1 = confirm
 menu-2-1-exec = poweroff
 
 format-padding = ${bar-settings.padding}
