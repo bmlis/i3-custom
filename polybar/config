@@ -13,10 +13,11 @@ alert = #bd2c40
 warning = #ffb52a
 great = #8BC34A
 processing = #4FC3F7
-main_theme = #4FC3F7
+main_theme = #fecb52
 
 
-transparent = #66000000
+transparent = #99000000
+
 
 [bar-settings]
 padding = 3

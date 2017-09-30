@@ -2,9 +2,9 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled:                  true
-rofi.color-normal:                   #14161F, #B0E670, argb:00000000, #B0E670,#14161F
-rofi.color-urgent:                   #14161F, #B0E670, argb:00000000, #B0E670,#14161F
-rofi.color-active:                   #14161F, #B0E670, argb:00000000, #B0E670,#14161F
+rofi.color-normal:                   argb:00000000, #ffdac2, argb:00000000, #ffdac2,#2c2826
+rofi.color-urgent:                   argb:00000000, #ffdac2, argb:00000000, #ffdac2,#2c2826
+rofi.color-active:                   argb:00000000, #ffdac2, argb:00000000, #ffdac2,#2c2826
 rofi.color-window:                   argb:99000000 
 
 rofi.width: 1920
