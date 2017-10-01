@@ -1,0 +1,27 @@
+URxvt.perl-ext-common: clipboard
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.keysym.Shift-Meta-V: perl:clipboard:paste_escaped
+
+! General settings
+URxvt.scrollBar: none
+URxvt.internalBorder: 45
+URxvt.tintColor: white
+URxvt.inheritPixmap: false
+
+! Transparency - real
+URxvt*depth: 32
+URxvt*background: [95]#2c2826
+
+! Transparency - fake
+!URxvt.transparent: true
+!URxvt.shading: 20
+
+! Set urxvt as login shell
+!URxvt*loginShell: true
+
+! Font settings
+URxvt.font: xft:mono:size=12
+URxvt.letterSpace: -1
+
+
