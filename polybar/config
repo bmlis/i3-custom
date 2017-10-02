@@ -26,7 +26,8 @@ padding = 3
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 35
+;height = 35;home
+height = 30;work
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -41,12 +42,19 @@ line-color = #f00
 padding-left = 3
 padding-right = 10
 
-module-margin-left = 1
-module-margin-right = 1
+;home
+# module-margin-left = 1
+# module-margin-right = 1
+# work
+module-margin-left = 3
+module-margin-right = 3
 
-font-0 = Noto Sans Tagalog:pixelsize=13;0
+;home
+;font-0 = Noto Sans Tagalog:pixelsize=13;0
+;work
+font-0 = Noto Sans:pixelsize=9;0
 font-1 = FontAwesome:size=10;0
-font-2 = siji:pixelsize=10;0
+font-2 = siji:pixelsize=9;0
 
 modules-left = i3
 modules-center = date
@@ -69,7 +77,6 @@ wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
-
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
@@ -80,6 +87,9 @@ ws-icon-2 = chat;
 ws-icon-3 = code;
 ws-icon-4 = music;
 ws-icon-default = 
+
+label-visible = %icon%
+label-visible-padding = 4
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
@@ -96,9 +106,9 @@ label-occupied-padding = 4
 label-urgent = %icon%
 label-urgent-padding = 4
 
-label-empty = %icon%
-label-empty-foreground = #44ffffff
-label-empty-padding = 4
+# label-empty = %icon%
+# label-empty-foreground = #44ffffff
+# label-empty-padding = 4
 
 
 [module/backlight]
@@ -147,26 +157,30 @@ label = %gb_used%/%gb_total%
 
 [module/network]
 type = internal/network
-; To test interface: $ ls -1 /sys/class/net/
-interface = wlp3s0
+#To test interface: $ ls -1 /sys/class/net/
+# interface = wlp3s0 ;home
+;work
+interface = wlp2s0
 interval = 0.3
 
 
-label-connected = ""
-label-disconnected = "X"
+label-connected = " %ifname%"
+label-disconnected = "X "
 format-connected = %{A:nm-connection-editor&:}<label-connected>%{A}
-format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>{A}
-format-padding = %{A:nm-connection-editor&:}${bar-settings.padding}{A}
+format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>%{A}
+# format-padding = %{A:nm-connection-eitor&:}${bar-settings.padding}{A}
 
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+# interface = enp0s31f6 ;home
+;work
+interface = enp3s0
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+# format-connected-underline = #55aa55
+format-connected-prefix = " "
+# format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-padding = ${bar-settings.padding}
@@ -203,8 +217,13 @@ type = internal/battery
 
 full-at = 99
 
-battery = BAT0
-adapter = AC0
+# # home
+# battery = BAT0
+# adapter = AC0
+
+;work
+battery = BAT1
+adapter = ADP1
 
 poll-interval = 5
 
