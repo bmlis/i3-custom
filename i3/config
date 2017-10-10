@@ -199,7 +199,7 @@ exec --no-startup-id ~/.screenlayout/layout.sh &
 
 # Windows assignments
 assign [class="Google-chrome"] $01
-assign [class="Code"] $02
+for_window [class="Code"] move to workspace $02
 assign [class="URxvt"] $03
 for_window [class="Spotify"] move to workspace $04
 

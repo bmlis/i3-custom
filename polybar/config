@@ -195,7 +195,8 @@ type = internal/date
 interval = 5
 date = " %Y/%m/%d"
 time = %H:%M
-format-prefix =  label = %{A:zenity --calendar&:}%date% %time%%{A}
+format-prefix = 
+label = %{A:zenity --calendar&:}%date% %time%%{A}
 
 
 [module/pavolume]

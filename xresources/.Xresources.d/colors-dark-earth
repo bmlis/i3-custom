@@ -3,7 +3,7 @@
 *.foreground:	#ffdac2
 
 ! black
-*.color0:       [95]#2c2826
+*.color0:       [90]#2c2826
 *.color8:       #723d02
 
 ! red
