@@ -24,13 +24,14 @@ padding = 3
 
 
 [bar/top]
-;monitor = ${env:MONITOR:HDMI-1}
+#monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
-;height = 35;home
-height = 30;work
+;home
+height = 35
+; height = 30;work
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
 fixed-center = true
 
 background = ${colors.transparent}
@@ -43,16 +44,16 @@ padding-left = 3
 padding-right = 10
 
 ;home
-# module-margin-left = 1
-# module-margin-right = 1
+module-margin-left = 1
+module-margin-right = 1
 # work
-module-margin-left = 3
-module-margin-right = 3
+# module-margin-left = 3
+# module-margin-right = 3
 
 ;home
-;font-0 = Noto Sans Tagalog:pixelsize=13;0
+font-0 = Noto Sans Tagalog:pixelsize=13;0
 ;work
-font-0 = Noto Sans:pixelsize=9;0
+# font-0 = Noto Sans:pixelsize=9;0
 font-1 = FontAwesome:size=10;0
 font-2 = siji:pixelsize=9;0
 
@@ -157,11 +158,12 @@ label = %gb_used%/%gb_total%
 
 [module/network]
 type = internal/network
+;home
 #To test interface: $ ls -1 /sys/class/net/
-# interface = wlp3s0 ;home
+interface = wlp3s0
 ;work
-interface = wlp2s0
-interval = 0.3
+# interface = wlp2s0
+# interval = 0.3
 
 
 label-connected = " %essid%"
@@ -173,9 +175,10 @@ format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>%{A}
 
 [module/eth]
 type = internal/network
-# interface = enp0s31f6 ;home
+;home
+interface = enp0s31f6
 ;work
-interface = enp3s0
+# interface = enp3s0
 interval = 3.0
 
 # format-connected-underline = #55aa55
@@ -217,12 +220,12 @@ type = internal/battery
 full-at = 99
 
 # # home
-# battery = BAT0
-# adapter = AC0
+battery = BAT0
+adapter = AC0
 
 ;work
-battery = BAT1
-adapter = ADP1
+# battery = BAT1
+# adapter = ADP1
 
 poll-interval = 5
 

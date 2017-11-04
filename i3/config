@@ -200,6 +200,7 @@ exec --no-startup-id ~/.screenlayout/layout.sh &
 # Windows assignments
 assign [class="Google-chrome"] $01
 for_window [class="Code"] move to workspace $02
+for_window [class="Emacs"] move to workspace $02
 assign [class="URxvt"] $03
 for_window [class="Spotify"] move to workspace $04
 
@@ -216,8 +217,8 @@ client.background       #ffffff
 
 # Gaps
 # home
-# gaps inner 40
-# gaps outer 5
-# work
-gaps inner 25
+gaps inner 40
 gaps outer 5
+# work
+# gaps inner 25
+# gaps outer 5
