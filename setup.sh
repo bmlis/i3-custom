@@ -26,6 +26,10 @@ echo "Setup compton"
 mkdir ~/.config/compton/
 ln -s ~/Customization/i3-custom/compton/config ~/.config/compton/
 
+echo "Setup dunst"
+mkdir ~/.config/dunst/
+ln -s ~/Customization/i3-custom/dunstrc/dunstrc ~/.config/dunst/
+
 echo "Installing i3-gaps"
 # using yaroslav/i3desktop
 sudo dnf -y install i3-gaps --allowerasing
