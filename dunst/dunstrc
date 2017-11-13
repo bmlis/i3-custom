@@ -105,6 +105,10 @@
 # vim: ft=cfg
 
 [play_sound]
-summary = "*"
+summary = "*low battery*"
 script = /home/h3ra/Customization/i3-custom/dunst/play_alert.sh
-urgency = critical
+
+[spotify]
+appname = *Spotify*
+new_icon = spotify-client
+urgency = normal
