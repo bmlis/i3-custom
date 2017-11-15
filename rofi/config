@@ -2,14 +2,12 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled:                  true
-rofi.color-normal:                   argb:00000000, #ffdac2, argb:00000000, #ffdac2,#2c2826
-rofi.color-urgent:                   argb:00000000, #ffdac2, argb:00000000, #ffdac2,#2c2826
-rofi.color-active:                   argb:00000000, #ffdac2, argb:00000000, #ffdac2,#2c2826
-rofi.color-window:                   argb:99000000 
+rofi.color-normal:                   argb:00000000, #5ab3cc, argb:00000000, #5ab3cc,#eff3f0
+rofi.color-urgent:                   argb:00000000, #5ab3cc, argb:00000000, #5ab3cc,#ac4c64
+rofi.color-active:                   argb:00000000, #5ab3cc, argb:00000000, #5ab3cc,#eff3f0
+rofi.color-window:                   argb:99000000
 
 rofi.width: 1920
 rofi.lines: 15
 rofi.padding: 550
 rofi.separator-style none
-
-
