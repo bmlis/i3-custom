@@ -13,8 +13,8 @@ alert = #bd2c40
 warning = #ffb52a
 great = #8BC34A
 processing = #4FC3F7
-main_theme = #fecb52
-
+; main_theme = #fecb52
+main_theme = #5ab3cc
 
 transparent = #99000000
 
@@ -57,9 +57,12 @@ font-0 = Noto Sans Tagalog:pixelsize=13;0
 font-1 = FontAwesome:size=10;0
 font-2 = siji:pixelsize=9;0
 
-modules-left = i3
-modules-center = date
-modules-right = backlight memory cpu pavolume battery network eth powermenu
+; modules-left = i3
+; modules-center = date
+; modules-right = backlight memory cpu pavolume battery network eth powermenu
+modules-center = i3
+modules-left = backlight memory cpu pavolume
+modules-right = date network eth battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -94,8 +97,9 @@ label-visible-padding = 4
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = #AA000000
-label-focused-underline= ${colors.main_theme}
+label-focused-background = ${colors.main_theme}
+; label-focused-underline = ${colors.main_theme}
+label-focused-foreground = ${colors.transparent}
 label-focused-padding = 4
 
 label-unfocused = %icon%
@@ -120,7 +124,6 @@ exec = ~/.config/polybar/backlight.sh
 format-prefix = " "
 
 label = %output%%
-# label-foregrou2nd = ${colors.fg}
 format-padding = ${bar-settings.padding}
 
 
@@ -129,7 +132,7 @@ type = internal/cpu
 interval = 1
 
 format = <ramp-coreload> <label>
-;format = <ramp-coreload><label> 
+;format = <ramp-coreload><label>
 ;format-prefix = ""
 # format-foreground = ${colors.color4}
 
@@ -154,7 +157,7 @@ format-prefix = "  "
 # format-foreground = ${colors.color1}
 # format-margin-top = -5
 format-padding = ${bar-settings.padding}
-label = %gb_used%/%gb_total%
+label = %gb_used%
 
 [module/network]
 type = internal/network
@@ -170,7 +173,7 @@ label-connected = " %essid%"
 label-disconnected = "X "
 format-connected = %{A:nm-connection-editor&:}<label-connected>%{A}
 format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>%{A}
-# format-padding = %{A:nm-connection-eitor&:}${bar-settings.padding}{A}
+format-padding = ${bar-settings.padding}
 
 
 [module/eth]
@@ -196,10 +199,11 @@ format-disconnected =
 [module/date]
 type = internal/date
 interval = 5
-date = " %Y/%m/%d"
+date = " %d/%m"
 time = %H:%M
 format-prefix = 
 label = %{A:zenity --calendar&:}%date% %time%%{A}
+format-padding = ${bar-settings.padding}
 
 
 [module/pavolume]
