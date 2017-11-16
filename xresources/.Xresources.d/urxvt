@@ -11,7 +11,7 @@ URxvt.inheritPixmap: false
 
 ! Transparency - real
 URxvt*depth: 32
-URxvt*background: [90]#2c2826
+URxvt*background: [90]#f0f4f5
 
 ! Transparency - fake
 !URxvt.transparent: true
@@ -23,5 +23,3 @@ URxvt*background: [90]#2c2826
 ! Font settings
 URxvt.font: xft:mono:size=10
 URxvt.letterSpace: -1
-
-
