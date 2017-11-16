@@ -40,8 +40,8 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-padding-left = 3
-padding-right = 10
+padding-left = 7
+padding-right = 2
 
 ;home
 module-margin-left = 1
@@ -66,8 +66,8 @@ modules-right = date network eth battery powermenu
 
 tray-position = right
 tray-padding = 2
-tray-transparent = true
-tray-detached = true
+tray-background = #7f7f7f
+; tray-detached = true
 
 cursor-click = pointer
 cursor-scroll = ns-resize
