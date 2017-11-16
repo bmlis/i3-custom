@@ -90,6 +90,7 @@ ws-icon-1 = term;
 ws-icon-2 = chat;
 ws-icon-3 = code;
 ws-icon-4 = music;
+ws-icon-5 = keepass;
 ws-icon-default = 
 
 label-visible = %icon%

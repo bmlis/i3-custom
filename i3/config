@@ -6,7 +6,7 @@ set $04 music
 set $05 chat
 set $06 6
 set $07 7
-set $08 8
+set $08 keepass
 set $09 9
 set $10 10
 
@@ -196,6 +196,7 @@ exec --no-startup-id killall -q gsd-print-notifications
 exec --no-startup-id dunst
 exec --no-startup-id dropbox start
 exec --no-startup-id emacs --daemon
+exec --no-startup-id keepassxc
 #work
 exec --no-startup-id ~/.screenlayout/layout.sh &
 
@@ -206,6 +207,7 @@ for_window [class="Code"] move to workspace $02
 for_window [class="Emacs"] move to workspace $02
 assign [class="URxvt"] $03
 for_window [class="Spotify"] move to workspace $04
+for_window [class="keepassxc"] move to workspace $08
 
 
 # COLORS
