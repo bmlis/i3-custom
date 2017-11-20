@@ -1,8 +1,6 @@
 [colors]
-;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -13,7 +11,6 @@ alert = #bd2c40
 warning = #ffb52a
 great = #8BC34A
 processing = #4FC3F7
-; main_theme = #fecb52
 main_theme = #5ab3cc
 
 transparent = #99000000
@@ -24,8 +21,8 @@ padding = 3
 
 
 [bar/top]
-#monitor = ${env:MONITOR:HDMI-1}
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:HDMI-2}
+; monitor = ${env:MONITOR:eDP-1}
 width = 100%
 ;home
 height = 35
@@ -164,9 +161,9 @@ label = %gb_used%
 type = internal/network
 ;home
 #To test interface: $ ls -1 /sys/class/net/
-interface = wlp3s0
+# interface = wlp3s0
 ;work
-# interface = wlp2s0
+interface = wlp2s0
 # interval = 0.3
 
 
@@ -180,9 +177,9 @@ format-padding = ${bar-settings.padding}
 [module/eth]
 type = internal/network
 ;home
-interface = enp0s31f6
+# interface = enp0s31f6
 ;work
-# interface = enp3s0
+interface = enp3s0
 interval = 3.0
 
 # format-connected-underline = #55aa55
@@ -225,12 +222,12 @@ type = internal/battery
 full-at = 99
 
 # # home
-battery = BAT0
-adapter = AC0
+; battery = BAT0
+; adapter = AC0
 
 ;work
-# battery = BAT1
-# adapter = ADP1
+battery = BAT1
+adapter = ADP1
 
 poll-interval = 5
 
@@ -296,7 +293,7 @@ menu-2-0-exec = menu-open-0
 menu-2-1 = confirm
 menu-2-1-exec = poweroff
 
-format-padding = ${bar-settings.padding}
+;format-padding = ${bar-settings.padding}
 
 [settings]
 screenchange-reload = true
