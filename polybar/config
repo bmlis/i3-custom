@@ -22,7 +22,7 @@ padding = 3
 
 [bar/top]
 monitor = ${env:MONITOR:HDMI-2}
-; monitor = ${env:MONITOR:eDP-1}
+;monitor = ${env:MONITOR:eDP-1}
 width = 100%
 ;home
 height = 35
@@ -84,7 +84,7 @@ label-mode-background = ${colors.primary}
 
 ws-icon-0 = web;
 ws-icon-1 = term;
-ws-icon-2 = chat;
+ws-icon-2 = chat;
 ws-icon-3 = code;
 ws-icon-4 = music;
 ws-icon-5 = keepass;
