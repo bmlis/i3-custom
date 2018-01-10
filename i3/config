@@ -25,7 +25,7 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt256c
 
 # get rid of title
 new_window pixel 3
@@ -227,3 +227,4 @@ gaps outer 5
 # work
 # gaps inner 25
 # gaps outer 5
+
