@@ -11,7 +11,7 @@ URxvt.inheritPixmap: false
 
 ! Transparency - real
 URxvt*depth: 32
-URxvt*background: [90]#f0f4f5
+URxvt*background: [90]#261f39
 
 ! Transparency - fake
 !URxvt.transparent: true
