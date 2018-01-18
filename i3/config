@@ -28,8 +28,8 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt256c
 
 # get rid of title
-new_window pixel 3
-new_float pixel 3
+new_window pixel 0
+new_float pixel 0
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -227,4 +227,3 @@ gaps outer 5
 # work
 # gaps inner 25
 # gaps outer 5
-
