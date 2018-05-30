@@ -1,7 +1,8 @@
 ! Colors
 !#include ".Xresources.d/colors-dark-earth"
 !#include ".Xresources.d/colors-base16-ocean"
-#include ".Xresources.d/colors-cold-bruise"
+!#include ".Xresources.d/colors-high"
+#include ".Xresources.d/colors-bw"
 
 ! Font Settings
 #include ".Xresources.d/fonts"
