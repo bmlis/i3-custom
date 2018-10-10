@@ -25,7 +25,8 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt256c
+# bindsym $mod+Return exec urxvt256c
+bindsym $mod+Return exec urxvt
 
 # get rid of title
 new_window pixel 0
@@ -187,7 +188,7 @@ bindsym $mod+r mode "resize"
 
 # Autostart
 
-exec_always --no-startup-id ~/.config/i3/polybar.sh &
+exec_always --no-startup-id ~/.i3/polybar.sh &
 exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
 exec --no-startup-id setxkbmap -option ctrl:nocaps -layout pl
 exec --no-startup-id nitrogen --restore
