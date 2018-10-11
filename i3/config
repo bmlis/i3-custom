@@ -1,4 +1,7 @@
+# Setup mod key as Mod4=<Super>. Mod1=<Alt>
 set $mod Mod4
+
+# Setup workspacec names
 set $01 web
 set $02 code
 set $03 term
@@ -10,22 +13,13 @@ set $08 keepass
 set $09 9
 set $10 10
 
-#font pango:monospace 8
-
+# Change font
 font pango:DejaVu Sans Mono 9
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec urxvt256c
 bindsym $mod+Return exec urxvt
 
 # get rid of title
@@ -35,17 +29,11 @@ new_float pixel 0
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-
 # Rofi
 bindsym $mod+d exec "rofi -combi-combi-modi window,drun -show combi -modi combi"
-#bindsym $mod+d exec dmenu_run
 
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# launch categorized menu
+bindsym $mod+z exec --no-startup-id morc_menu
 
 # change focus
 bindsym $mod+j focus left
@@ -129,14 +117,15 @@ bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Down move workspace to output down
 
 # lockscreen
-bindsym $mod+x exec ~/.config/lock.sh
+bindsym $mod+x exec --no-startup-id blurlock
 
+bindsym $mod+Ctrl+m exec pavucontrol
 # Volume control
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
+# bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
-# brightness
+# # brightness
 bindsym XF86MonBrightnessUp exec light -A 15 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 15 # decrease screen brightness
 
@@ -187,19 +176,20 @@ bindsym $mod+r mode "resize"
 
 
 # Autostart
-
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id ~/.i3/polybar.sh &
-exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
-exec --no-startup-id setxkbmap -option ctrl:nocaps -layout pl
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton
-exec --no-startup-id killall -q gsd-print-notifications
-exec --no-startup-id dunst
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id pa-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id pamac-tray
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dropbox start
-exec --no-startup-id /bin/zsh emacs --daemon
+exec --no-startup-id dunst
 exec --no-startup-id keepassxc
+exec --no-startup-id setxkbmap -option ctrl:nocaps -layout pl
 #work
 exec --no-startup-id ~/.screenlayout/layout.sh &
+exec_always --no-startup-id fix_xcursor
 
 
 # Windows assignments

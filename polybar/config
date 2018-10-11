@@ -38,7 +38,7 @@ padding = 3
 
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-2}
-monitor = ${env:MONITOR:eDP-1}
+; monitor = ${env:MONITOR:eDP-1}
 
 ;home
 height = 35
@@ -72,8 +72,8 @@ font-1 = FontAwesome:size=10;0
 font-2 = siji:pixelsize=9;0
 
 modules-center = i3
-modules-left = backlight cpu memory alsa
-modules-right = date network eth battery powermenu
+modules-left = backlight cpu memory
+modules-right = date battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -214,60 +214,6 @@ format-prefix = 
 format-foreground = #191919
 label = %{A:zenity --calendar&:}%date% %time%%{A}
 format-padding = ${bar-settings.padding}
-
-[module/alsa]
-type = internal/alsa
-
-; Soundcard to be used
-; Usually in the format hw:# where # is the card number
-; You can find the different card numbers in `/proc/asound/cards`
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-
-; Name of the master, speaker and headphone mixers
-; Use the following command to list available mixer controls:
-; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
-; If master, speaker or headphone-soundcard isn't the default,
-; use `amixer -c # scontrols` instead where # is the number
-; of the master, speaker or headphone soundcard respectively
-;
-; Default: Master
-master-mixer = Master
-
-; Optionally define speaker and headphone mixers
-; Default: none
-speaker-mixer = Speaker
-; Default: none
-headphone-mixer = Headphone
-
-; NOTE: This is required if headphone_mixer is defined
-; Use the following command to list available device controls
-; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
-; You may also need to use `amixer -c # controls` as above for the mixer names
-; Default: none
-headphone-id = 9
-
-; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
-; Default: false
-mapped = true
-
-; Interval for volume increase/decrease (in percent points) (unreleased)
-; Default: 5
-interval = 5
-
-[module/pavolume]
-type = custom/script
-interval = 0.2
-label = %output%
-format-foreground = #191919
-exec = ~/.config/polybar/pavolume.sh
-click-right = exec pavucontrol
-click-left = ~/.config/polybar/pavolume.sh --togmute
-scroll-up = ~/.config/polybar/pavolume.sh --up
-scroll-down = ~/.config/polybar/pavolume.sh --down
-format-padding = ${bar-settings.padding}
-
 
 [module/battery]
 type = internal/battery
