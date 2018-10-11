@@ -30,7 +30,7 @@ new_float pixel 0
 bindsym $mod+Shift+q kill
 
 # Rofi
-bindsym $mod+d exec "rofi -combi-combi-modi window,drun -show combi -modi combi"
+bindsym $mod+d exec "rofi -sidebar-mode -show run -modi run,window"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -117,7 +117,7 @@ bindsym $mod+Control+Down move workspace to output down
 ############# Applications bindings ####################################
 bindsym $mod+Ctrl+m exec pavucontrol          # pulseaudo mixer
 bindsym Print exec --no-startup-id i3-scrot   # screenshot
-bindsym $mod+F3 exec pcmanfm                  # file manager
+bindsym $mod+Ctrl+3  exec pcmanfm                  # file manager
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm       # file manager (sudo)
 bindsym $mod+x exec --no-startup-id blurlock  # lockscreen

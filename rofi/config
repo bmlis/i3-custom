@@ -1,13 +1,16 @@
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled:                  true
-rofi.color-normal:                   argb:00000000, #fe207b, argb:00000000, #03cbca,#f1f1f1
-rofi.color-urgent:                   argb:00000000, #03cbca, argb:00000000, #03cbca,#ac4c64
-rofi.color-active:                   argb:00000000, #98de00, argb:00000000, #03cbca,#f1f1f1
-rofi.color-window:                   argb:99000000
-
-rofi.width: 1920
-rofi.lines: 15
-rofi.padding: 550
-rofi.separator-style none
+rofi.color-window: argb:f2dedb50, #535c5c,         #f8f8f8
+rofi.color-normal: argb:00dedb50, #f8f8f8, argb:00535c5c, argb:00171717, #535c5c
+rofi.color-urgent: argb:00dedb50, #cc6666, argb:e54b5160, argb:00171717, #535c5c
+rofi.color-active: argb:00dedb50, #65acff, argb:e44b5160, argb:00171717, #535c5c
+rofi.width: 450
+rofi.lines: 20
+rofi.font: xft:mono 11
+rofi.bw: 0  ## border width
+rofi.padding: 35
+rofi.line-margin: 6
+rofi.eh: 1  # list indent
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+rofi.show-icons: false
+rofi.location: 7
+rofi.terminal: urxvt
