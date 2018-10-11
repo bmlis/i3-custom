@@ -120,9 +120,12 @@ bindsym Print exec --no-startup-id i3-scrot   # screenshot
 bindsym $mod+Ctrl+3  exec pcmanfm                  # file manager
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm       # file manager (sudo)
-bindsym $mod+x exec --no-startup-id blurlock  # lockscreen
+bindsym $mod+Shift+x exec --no-startup-id blurlock  # lockscreen
 ########################################################################
 
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # # brightness
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
