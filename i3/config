@@ -83,9 +83,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # switch to workspace
 bindsym $mod+1 workspace $01
 bindsym $mod+2 workspace $02
@@ -116,18 +113,19 @@ bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Down move workspace to output down
 
-# lockscreen
-bindsym $mod+x exec --no-startup-id blurlock
 
-bindsym $mod+Ctrl+m exec pavucontrol
-# Volume control
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
-# bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+############# Applications bindings ####################################
+bindsym $mod+Ctrl+m exec pavucontrol          # pulseaudo mixer
+bindsym Print exec --no-startup-id i3-scrot   # screenshot
+bindsym $mod+F3 exec pcmanfm                  # file manager
+# bindsym $mod+F3 exec ranger
+bindsym $mod+Shift+F3 exec gksu pcmanfm       # file manager (sudo)
+bindsym $mod+x exec --no-startup-id blurlock  # lockscreen
+########################################################################
 
 # # brightness
-bindsym XF86MonBrightnessUp exec light -A 15 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 15 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Media player controls
 #bindsym XF86AudioPlay exec playerctl play
@@ -141,8 +139,8 @@ bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+
+bindsym $mod+Shift+c reload  # reload the configuration file
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -173,7 +171,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
 
 # Autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -211,10 +208,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-# Gaps
-# home
+
+
+#############################
+### settings for i3-gaps: ###
+#############################
+
 gaps inner 25
 gaps outer 5
-# work
-# gaps inner 25
-# gaps outer 5
