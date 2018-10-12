@@ -5,10 +5,14 @@ inactive = #fbcfd9
 active = #da3458
 
 color1 = #191919
+color2 = #797979
 
 [bar-settings]
 padding = 3
+
 i3-label-padding = 4
+i3-foreground = ${colors.active}
+i3-unfocused = ${colors.inactive}
 
 backlight-padding = 2
 backlight-foreground = ${colors.color1}
@@ -26,6 +30,7 @@ powermenu-foreground = ${colors.color1}
 powermenu-reboot = ${colors.color1}
 powermenu-quit= ${colors.color1}
 
+menu-padding= 5
 
 [bar/home]
 
@@ -45,8 +50,8 @@ font-0 = Noto Sans:pixelsize=11;5
 font-1 = FontAwesome:size=11;5
 font-2 = siji:pixelsize=9;0
 
-modules-center = i3
-modules-left = menu backlight cpu memory date
+modules-left = menu i3
+modules-center = backlight cpu memory date
 modules-right = powermenu
 
 tray-position = right
@@ -72,20 +77,24 @@ ws-icon-default = 
 
 label-visible = %icon%
 label-visible-padding = ${bar-settings.i3-label-padding}
+label-visible-foreground = ${bar-settings.i3-foreground}
 
 label-focused = %icon%
 label-focused-padding = ${bar-settings.i3-label-padding}
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = #fff
+label-focused-background = ${bar-settings.i3-foreground}
 
 label-unfocused = %icon%
 label-unfocused-padding = ${bar-settings.i3-label-padding}
-label-unfocused-foreground = ${colors.inactive}
+label-unfocused-foreground = ${bar-settings.i3-unfocused}
 
 label-occupied = %icon%
 label-occupied-padding = ${bar-settings.i3-label-padding}
+label-occupied-foreground = ${bar-settings.i3-foreground}
 
 label-urgent = %icon%
 label-urgent-padding = ${bar-settings.i3-label-padding}
+label-urgent-foreground = ${bar-settings.i3-foreground}
 
 
 [module/backlight]
@@ -117,9 +126,8 @@ format-padding = ${bar-settings.padding}
 [module/menu]
 type = custom/text
 content = 
-content-padding = ${bar-settings.padding}
+content-padding = ${bar-settings.menu-padding}
 click-left = morc_menu
-click-background = #000
 
 [module/memory]
 type = internal/memory
