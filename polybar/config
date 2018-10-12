@@ -1,84 +1,57 @@
-[colors-old]
-background = #261f39
-background-alt = #444
-foreground = #f1f1f1
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-
-
-alert = #bd2c40
-warning = #ffb52a
-great = #8BC34A
-processing = #4FC3F7
-main_theme = #2dfcde
-
-transparent = #99000000
-
 [colors]
 background = #00000000
-background-alt = #444
 foreground = #000
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+inactive = #fbcfd9
+active = #da3458
 
-
-alert = #bd2c40
-warning = #ffb52a
-great = #8BC34A
-processing = #4FC3F7
-main_theme = #000
-
-transparent = #99000000
+color1 = #191919
 
 [bar-settings]
 padding = 3
+i3-label-padding = 4
+
+backlight-padding = 2
+backlight-foreground = ${colors.color1}
+
+memory-padding = 2
+memory-foreground = ${colors.color1}
+
+cpu-padding = 1
+cpu-foreground = ${colors.color1}
+
+date-padding = 1
+date-foreground = ${colors.color1}
+
+powermenu-foreground = ${colors.color1}
+powermenu-reboot = ${colors.color1}
+powermenu-quit= ${colors.color1}
 
 
-[bar/top]
-;monitor = ${env:MONITOR:HDMI-2}
-; monitor = ${env:MONITOR:eDP-1}
+[bar/home]
 
-;home
-height = 35
-; height = 25;work
-; offset-x = 1%
-; offset-y = 1%
 fixed-center = true
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+monitor = HDMI1
+monitor-fallback = eDP1
 
+height = 36
 
-line-size = 3
-line-color = #f00
-
-padding-left = 7
-padding-right = 2
-
-;home
-module-margin-left = 1
-module-margin-right = 1
-# work
-# module-margin-left = 3
-# module-margin-right = 3
-
-;home
-font-0 = Noto Sans Tagalog:pixelsize=13;0
-;work
-# font-0 = Noto Sans:pixelsize=9;0
-font-1 = FontAwesome:size=10;0
+; Polybar doesnt handle underline/overline size
+; too well so we need manual offset
+font-0 = Noto Sans:pixelsize=11;5
+font-1 = FontAwesome:size=11;5
 font-2 = siji:pixelsize=9;0
 
 modules-center = i3
-modules-left = backlight cpu memory
-modules-right = date powermenu
+modules-left = menu backlight cpu memory date
+modules-right = powermenu
 
 tray-position = right
-tray-padding = 2
+tray-offset-y = 1
 tray-background = ${colors.background}
-; tray-detached = true
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -88,12 +61,6 @@ cursor-scroll = ns-resize
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-label-mode-padding = 2
-; label-mode-background = ${colors.primary}
 
 ws-icon-0 = web;
 ws-icon-1 = term;
@@ -104,22 +71,21 @@ ws-icon-5 = keepass;
 ws-icon-default = 
 
 label-visible = %icon%
-label-visible-padding = 4
+label-visible-padding = ${bar-settings.i3-label-padding}
 
-; focused = Active workspace on focused monitor
 label-focused = %icon%
-; label-focused-underline = ${colors.main_theme}
-label-focused-padding = 4
+label-focused-padding = ${bar-settings.i3-label-padding}
+label-focused-foreground = ${colors.foreground}
 
 label-unfocused = %icon%
-label-unfocused-padding = 4
-label-unfocused-foreground = #dfdfdf
+label-unfocused-padding = ${bar-settings.i3-label-padding}
+label-unfocused-foreground = ${colors.inactive}
 
 label-occupied = %icon%
-label-occupied-padding = 4
+label-occupied-padding = ${bar-settings.i3-label-padding}
 
 label-urgent = %icon%
-label-urgent-padding = 4
+label-urgent-padding = ${bar-settings.i3-label-padding}
 
 
 [module/backlight]
@@ -130,79 +96,40 @@ type = internal/backlight
 card = intel_backlight
 format = <label>
 format-prefix = ""
+format-foreground = ${bar-settings.backlight-foreground}
+format-padding = ${bar-settings.padding}
 
-; Available tokens:
-;   %percentage% (default)
 label = %percentage%%
+label-padding = ${bar-settings.backlight-padding}
 
 [module/cpu]
 type = internal/cpu
 interval = 1
 
-; format = <ramp-coreload> <label>
 format = <label>
-format-prefix = ""
-# format-foreground = ${colors.color4}
+format-prefix = ""
 
 label = %percentage:3%%
-;   
-
-format-foreground = #191919
-; ramp-coreload-0 = ▁
-; ramp-coreload-1 = ▂
-; ramp-coreload-2 = ▃
-; ramp-coreload-3 = ▄
-; ramp-coreload-4 = ▅
-; ramp-coreload-5 = ▆
-; ramp-coreload-6 = ▇
+format-foreground = ${bar-settings.cpu-foreground}
+label-padding = ${bar-settings.cpu-padding}
 format-padding = ${bar-settings.padding}
+
+[module/menu]
+type = custom/text
+content = 
+content-padding = ${bar-settings.padding}
+click-left = morc_menu
+click-background = #000
 
 [module/memory]
 type = internal/memory
 interval = 1
 
-format-prefix = "  "
-;format-prefix = ram
-format-foreground = #191919
+format-prefix = ""
+format-foreground = ${bar-settings.memory-foreground}
 format-padding = ${bar-settings.padding}
+label-padding = ${bar-settings.memory-padding}
 label = %gb_used%
-
-[module/network]
-type = internal/network
-;home
-#To test interface: $ ls -1 /sys/class/net/
-interface = wlp3s0
-;work
-# interface = wlp2s0
-# interval = 0.3
-
-
-label-connected = " %essid%"
-label-disconnected = "X "
-label-connected-foreground = #191919
-label-disconnected-foreground = #191919
-format-connected = %{A:nm-connection-editor&:}<label-connected>%{A}
-format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>%{A}
-format-padding = ${bar-settings.padding}
-
-
-[module/eth]
-type = internal/network
-;home
-interface = enp0s31f6
-;work
-# interface = enp3s0
-interval = 3.0
-
-label-connected = ""
-label-connected-foreground = #191919
-
-format-padding = ${bar-settings.padding}
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 
 [module/date]
@@ -211,97 +138,49 @@ interval = 5
 date = " %d/%m"
 time = %H:%M
 format-prefix = 
-format-foreground = #191919
-label = %{A:zenity --calendar&:}%date% %time%%{A}
+format-foreground = ${bar-settings.memory-foreground}
 format-padding = ${bar-settings.padding}
+label = %{A:zenity --calendar&:}%date% %time%%{A}
+label-padding = ${bar-settings.date-padding}
 
-[module/battery]
-type = internal/battery
-
-full-at = 99
-
-# # home
-battery = BAT0
-adapter = AC0
-
-;work
-;battery = BAT1
-;adapter = ADP1
-
-poll-interval = 5
-
-format-charging-padding = ${bar-settings.padding}
-format-discharging-padding = ${bar-settings.padding}
-format-full-padding = ${bar-settings.padding}
-
-format-charging = <animation-charging>  <label-charging>
-format-discharging = <ramp-capacity>  <label-discharging>
-format-full = <ramp-capacity>  <label-full>
-
-label-charging = %percentage%%
-label-discharging = %percentage%%
-label-full = %percentage%%
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-ramp-capacity-0-foreground = ${colors.alert}
-ramp-capacity-1-foreground = ${colors.warning}
-ramp-capacity-4-foreground = ${colors.great}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-animation-charging-foreground = ${colors.processing}
 
 [module/powermenu]
 type = custom/menu
-
-expand-right = true
+expand-right = false
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = #191919
+label-open = ""
+label-open-foreground = ${bar-settings.powermenu-foreground}
 
-label-close =  
-# label-close-foreground = ${colors.secondary}
-label-separator = |
-# label-separator-foreground = ${colors.foreground-alt}
+label-close = ""
+label-close-foreground = ${bar-settings.powermenu-foreground}
 
-menu-0-0 = 
-menu-0-0-foreground = ${colors.warning}
-menu-0-0-exec = menu-open-1
+label-separator = "|"
+label-separator-foreground = ${bar-settings.powermenu-foreground}
 
-menu-0-1-foreground = ${colors.alert}
-menu-0-1 = 
-menu-0-1-exec = menu-open-2
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = confirm
-menu-1-1-exec = reboot
+menu-0-0-foreground = ${bar-settings.powermenu-quit}
+menu-0-0 = 
+menu-0-0-exec = menu-open-2
 
-menu-2-0 = cancel
-menu-2-0-exec = menu-open-0
-menu-2-1 = confirm
-menu-2-1-exec = poweroff
+menu-0-1 = 
+menu-0-1-foreground = ${bar-settings.powermenu-reboot}
+menu-0-1-exec = menu-open-1
 
-;format-padding = ${bar-settings.padding}
+menu-1-1 = cancel
+menu-1-1-exec = menu-open-0
+menu-1-0 = confirm
+menu-1-0-exec = reboot
+
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+menu-2-0 = confirm
+menu-2-0-exec = poweroff
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
