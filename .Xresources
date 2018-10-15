@@ -24,7 +24,7 @@ XTerm*selectToClipboard: true
 
 !! black dark/light
 ! *color0:                          #222D31
-*.color0:                         [90]#f8f8f8
+*.color0:                         [95]#f8f8f8
 *.color8:                         #191919
 
 !! red dark/light
@@ -48,8 +48,8 @@ XTerm*selectToClipboard: true
 *color13:                         #ba8baf
 
 !! cyan dark/light
-*color6:                          #dedb50
-*color14:                         #dedb50
+*color6:                          #cdca4f
+*color14:                         #cdca4f
 
 !! white dark/light
 *color7:                          #d8d8d8
@@ -64,7 +64,7 @@ URxvt.letterSpace: -1
 URxvt.foreground:                 #191919
 
 URxvt*depth:                      32
-URxvt.background:                 [90]#f8f8f8
+URxvt.background:                 [95]#f8f8f8
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
