@@ -40,7 +40,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 monitor = HDMI1
-monitor-fallback = eDP1
+monitor-fallback = HDMI2
 
 height = 36
 
