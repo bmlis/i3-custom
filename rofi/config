@@ -1,7 +1,7 @@
-rofi.color-window: argb:f2da3458, #191919,         #f8f8f8
-rofi.color-normal: argb:00da3458, #f8f8f8, argb:00535c5c, argb:00171717, #191919
-rofi.color-urgent: argb:00da3458, #cc6666, argb:e54b5160, argb:00171717, #191919
-rofi.color-active: argb:00da3458, #65acff, argb:e44b5160, argb:00171717, #191919
+rofi.color-window: argb:f2faf9f2, #2b3d45,         #f8f8f8
+rofi.color-normal: argb:00faf9f2, #738980, argb:00535c5c, argb:00171717, #2b3d45
+rofi.color-urgent: argb:00faf9f2, #c67b6d, argb:e54b5160, argb:00171717, #2b3d45
+rofi.color-active: argb:00faf9f2, #65acff, argb:e44b5160, argb:00171717, #2b3d45
 rofi.width: 450
 rofi.lines: 20
 rofi.font: xft:mono 11
@@ -11,6 +11,6 @@ rofi.line-margin: 6
 rofi.eh: 1  # list indent
 rofi.separator-style: none
 rofi.hide-scrollbar: true
-rofi.show-icons: false
+rofi.show-icons: fals
 rofi.location: 1
 rofi.terminal: urxvt

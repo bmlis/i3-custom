@@ -1,11 +1,10 @@
 [colors]
-background = #00000000
-foreground = #000
-inactive = #fbcfd9
-active = #da3458
+background = #faf9f2
+foreground = #2b3d45
+inactive = #dcb1a2
+active = #c67b6d
 
-color1 = #191919
-color2 = #797979
+color1 = #2b3d45
 
 [bar-settings]
 padding = 3
@@ -16,19 +15,23 @@ i3-unfocused = ${colors.inactive}
 
 backlight-padding = 2
 backlight-foreground = ${colors.color1}
+backlight-icon-color = ${colors.active}
 
 memory-padding = 2
 memory-foreground = ${colors.color1}
+memory-icon-color = ${colors.active}
 
 cpu-padding = 1
 cpu-foreground = ${colors.color1}
+cpu-icon-color = ${colors.active}
 
 date-padding = 1
 date-foreground = ${colors.color1}
+date-icon-color = ${colors.active}
 
 powermenu-foreground = ${colors.color1}
-powermenu-reboot = ${colors.color1}
-powermenu-quit= ${colors.color1}
+powermenu-reboot = ${colors.inactive}
+powermenu-quit= ${colors.active}
 
 menu-padding= 5
 
@@ -39,8 +42,6 @@ bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-monitor = HDMI1
-monitor-fallback = HDMI2
 
 height = 36
 
@@ -55,7 +56,6 @@ modules-center = backlight cpu memory date
 modules-right = powermenu
 
 tray-position = right
-tray-offset-y = 1
 tray-background = ${colors.background}
 
 cursor-click = pointer
@@ -105,11 +105,12 @@ type = internal/backlight
 card = intel_backlight
 format = <label>
 format-prefix = ""
-format-foreground = ${bar-settings.backlight-foreground}
+format-foreground = ${bar-settings.backlight-icon-color}
 format-padding = ${bar-settings.padding}
 
 label = %percentage%%
 label-padding = ${bar-settings.backlight-padding}
+label-foreground = ${bar-settings.backlight-foreground}
 
 [module/cpu]
 type = internal/cpu
@@ -117,11 +118,12 @@ interval = 1
 
 format = <label>
 format-prefix = ""
+format-foreground = ${bar-settings.cpu-icon-color}
+format-padding = ${bar-settings.padding}
 
 label = %percentage:3%%
-format-foreground = ${bar-settings.cpu-foreground}
 label-padding = ${bar-settings.cpu-padding}
-format-padding = ${bar-settings.padding}
+label-foreground = ${bar-settings.cpu-foreground}
 
 [module/menu]
 type = custom/text
@@ -134,10 +136,12 @@ type = internal/memory
 interval = 1
 
 format-prefix = ""
-format-foreground = ${bar-settings.memory-foreground}
+format-foreground = ${bar-settings.memory-icon-color}
 format-padding = ${bar-settings.padding}
-label-padding = ${bar-settings.memory-padding}
+
 label = %gb_used%
+label-padding = ${bar-settings.memory-padding}
+label-foreground = ${bar-settings.memory-foreground}
 
 
 [module/date]
@@ -145,11 +149,14 @@ type = internal/date
 interval = 5
 date = " %d/%m"
 time = %H:%M
+
 format-prefix = 
-format-foreground = ${bar-settings.memory-foreground}
+format-foreground = ${bar-settings.date-icon-color}
 format-padding = ${bar-settings.padding}
+
 label = %{A:zenity --calendar&:}%date% %time%%{A}
 label-padding = ${bar-settings.date-padding}
+label-foreground = ${bar-settings.date-foreground}
 
 
 [module/powermenu]

@@ -7,49 +7,48 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 XTerm*background:        #f8f8f8
-XTerm*foreground:        #191919
-XTerm*pointerColor:      #dedb50
+XTerm*foreground:        #2b3d45
+XTerm*pointerColor:      #edd4a7
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #f8f8f8
-*foreground:                      #191919
+*background:                      #faf9f2
+*foreground:                      #2b3d45
 *fading:                          8
 *fadeColor:                       black
-*cursorColor:                     #dedb50
+*cursorColor:                     #edd4a7
 *pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #a9a440
+*pointerColorForeground:          #c67b6d
 
 !! black dark/light
-! *color0:                          #222D31
-*.color0:                         [95]#f8f8f8
-*.color8:                         #191919
+*.color0:                         [90]#faf9f2
+*.color8:                         #2b3d45
 
 !! red dark/light
-*color1:                          #da3458
-*color9:                          #da3458
+*color1:                          #c47b6e
+*color9:                          #dcb1a2
 
 !! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
+*color2:                          #7a9783
+*color10:                         #a8b570
 
 !! yellow dark/light
 *color3:                          #cf9c41
-*color11:                         #ecc55e
+*color11:                         #cf9c41
 
 !! blue dark/light
-*color4:                          #325e81
-*color12:                         #509ea8
+*color4:                          #596f7d
+*color12:                         #738b9b
 
 !! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
+*color5:                          #4d3b57
+*color13:                         #6c5976
 
 !! cyan dark/light
-*color6:                          #cdca4f
-*color14:                         #cdca4f
+*color6:                          #738980
+*color14:                         #79b1a2
 
 !! white dark/light
 *color7:                          #d8d8d8
@@ -61,10 +60,10 @@ Xcursor.size:                     0
 ! Font settings
 URxvt.font: xft:mono:size=11
 URxvt.letterSpace: -1
-URxvt.foreground:                 #191919
+URxvt.foreground:                 #2b3d45
 
 URxvt*depth:                      32
-URxvt.background:                 [95]#f8f8f8
+URxvt.background:                 [90]#faf9f2
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
