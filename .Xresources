@@ -14,8 +14,8 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #faf9f2
-*foreground:                      #2b3d45
+*background:                      #171717
+*foreground:                      #dddddd
 *fading:                          8
 *fadeColor:                       black
 *cursorColor:                     #edd4a7
@@ -23,8 +23,8 @@ XTerm*selectToClipboard: true
 *pointerColorForeground:          #c67b6d
 
 !! black dark/light
-*.color0:                         [90]#faf9f2
-*.color8:                         #2b3d45
+*.color0:                         [90]#171717
+*.color8:                         #dddddd
 
 !! red dark/light
 *color1:                          #c47b6e
@@ -32,15 +32,15 @@ XTerm*selectToClipboard: true
 
 !! green dark/light
 *color2:                          #7a9783
-*color10:                         #a8b570
+*color10:                         #eeeeee
 
 !! yellow dark/light
-*color3:                          #cf9c41
-*color11:                         #cf9c41
+*color3:                          #c47b6e
+*color11:                         #c47b6e
 
 !! blue dark/light
 *color4:                          #596f7d
-*color12:                         #738b9b
+*color12:                         #888888
 
 !! magenta dark/light
 *color5:                          #4d3b57
@@ -48,7 +48,7 @@ XTerm*selectToClipboard: true
 
 !! cyan dark/light
 *color6:                          #738980
-*color14:                         #79b1a2
+*color14:                         #aaaaaa
 
 !! white dark/light
 *color7:                          #d8d8d8
@@ -60,10 +60,10 @@ Xcursor.size:                     0
 ! Font settings
 URxvt.font: xft:mono:size=11
 URxvt.letterSpace: -1
-URxvt.foreground:                 #2b3d45
+URxvt.foreground:                 #dddddd
 
 URxvt*depth:                      32
-URxvt.background:                 [90]#faf9f2
+URxvt.background:                 [90]#171717
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true

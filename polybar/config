@@ -1,10 +1,10 @@
 [colors]
-background = #faf9f2
-foreground = #2b3d45
+background = #00000000
+foreground = #ffffff
 inactive = #dcb1a2
 active = #c67b6d
 
-color1 = #2b3d45
+color1 = #ffffff
 
 [bar-settings]
 padding = 3
@@ -36,6 +36,10 @@ powermenu-quit= ${colors.active}
 menu-padding= 5
 
 [bar/home]
+
+monitor = HDMI1
+
+monitor-fallback = eDP1
 
 fixed-center = true
 bottom = true
